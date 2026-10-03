@@ -4,7 +4,7 @@ Build and run `scripts/test.ps1` on Windows before proposing a change. Run `scri
 
 Behavior belongs in CatBrain.cs and should be deterministic with a seeded Random. Avoid desktop-wide hooks or dependencies for features the existing WinForms host can implement. Preserve mute, pause, toy removal, and click-through controls.
 
-New poses use the 48x52 pixel canvas in ExtraArt.cs. Preserve Bob's ginger stripes, cream cheeks, pink nose, and pixel outlines. `Bob The Cat.exe --preview "path-to-folder"` exports an action contact sheet and individual frames.
+New action poses use 192x208 cells in `source/action-sprites.png`, extracted by `ExtraArt.cs`; yarn uses 48x48 cells. Keep one shared scale per action and nearest-neighbor rendering. Preserve Bob's ginger stripes, cream cheeks, pink nose, and pixel outlines. See [artwork notes](docs/artwork.md). `Bob The Cat.exe --preview "path-to-folder"` exports an action contact sheet and individual frames.
 
 Please include a description of the observable change and checks performed. For bugs, include Windows version, display scaling/monitor layout, reproduction steps, and relevant lines from errors.log. Redact personal paths and window information before sharing logs.
 

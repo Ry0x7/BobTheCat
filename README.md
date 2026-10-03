@@ -4,6 +4,35 @@ A small ginger pixel cat that lives on your Windows desktop. Bob has his own rou
 
 ![Bob's pixel actions](docs/actions-preview.png)
 
+## What this project does
+
+Bob is a native desktop companion. His behavior engine combines autonomous activity planning with cursor petting, dragging, window perching, and short toy sessions. Tray controls let you choose a quiet routine, pause animation, mute sounds, or make the cat click-through. Everything runs locally without an account or network service.
+
+## Technology stack
+
+| Technology | Responsibility |
+| --- | --- |
+| C# | Behavior engine, application host, and deterministic tests |
+| .NET Framework 4.8 / WinForms | Windows application lifecycle, tray menu, timers, and preferences |
+| Win32 interop | Transparent layered windows, window geometry, and click-through overlays |
+| System.Drawing | Sprite extraction and nearest-neighbor rendering |
+| XML serialization | Local user preferences |
+| Embedded PNG, ICO, and WAV assets | Offline visuals and sound playback |
+| PowerShell | Build, test, and portable packaging scripts |
+| GitHub Actions | Windows CI build, deterministic checks, and ZIP artifacts |
+
+There are no NuGet dependencies. Python and FFmpeg are optional tools for regenerating audio, not runtime requirements.
+
+## Guides
+
+- [Architecture and source ownership](docs/architecture.md)
+- [Development, testing, and packaging](docs/development.md)
+- [Artwork pipeline and attribution](docs/artwork.md)
+- [Contributing](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
+
+The companion portfolio landing page is maintained in [Ry0x7.github.io](https://github.com/Ry0x7/Ry0x7.github.io). It displays original sprites as a browser preview; desktop behavior requires this Windows application.
+
 ## Run Bob
 
 Extract the portable archive and double-click **Bob The Cat.exe**. Keep **Bob The Cat.exe.config** beside it. Windows 10/11 with .NET Framework 4.8 is the supported target. There is no installer or account, and Bob does not add himself to startup.
@@ -63,7 +92,7 @@ The build uses the .NET Framework compiler installed with Windows, compiles the 
 
 The default tests are deterministic and silent. They check movement, sleep, negative monitor coordinates, autonomous variety, cursor curiosity and cooldown, new action completion, yarn batting, toy cleanup, window loss and landing, all action frames, meow variation, sound muting, head/belly hover strokes, and rejection of transparent-space/horizontal gestures.
 
-`-Live` opens a temporary cat and test window for about ten seconds, exercises the real layered-window renderer and tray commands, verifies toy click-through/no-activation, and then closes them. Run it on an interactive Windows desktop. The GitHub workflow runs the default tests and packages a portable ZIP; it does not require a logged-in desktop session. CI is supplied for the future repository and has not yet run on GitHub.
+`-Live` opens a temporary cat and test window for about ten seconds, exercises the real layered-window renderer and tray commands, verifies toy click-through/no-activation, and then closes them. Run it on an interactive Windows desktop. The GitHub workflow runs the default tests and packages a portable ZIP; it does not require a logged-in desktop session. Check the repository's Actions tab for the status of a particular CI run.
 
 `package.ps1` writes `dist/Bob The Cat.zip`. Publish that ZIP as a GitHub release attachment. The source package contains a workflow, issue templates, contribution notes, and license/asset credits.
 
