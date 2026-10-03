@@ -1,0 +1,11 @@
+*.exe
+*.pdb
+*.zip
+source/build.rsp
+validation/
+dist/
+work/
+.vs/
+__pycache__/
+*.user
+*.suo

@@ -1,0 +1,34 @@
+name: Windows build and tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build and run deterministic tests
+        shell: pwsh
+        run: ./scripts/test.ps1
+      - name: Package portable application
+        shell: pwsh
+        run: ./scripts/package.ps1 -SkipBuild
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Bob-The-Cat-Windows
+          path: dist/Bob The Cat.zip
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: test-results
+          path: validation/*.txt
