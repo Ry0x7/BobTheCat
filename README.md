@@ -31,7 +31,7 @@ There are no NuGet dependencies. Python and FFmpeg are optional tools for regene
 - [Contributing](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)
 
-The companion portfolio landing page is maintained in [Ry0x7.github.io](https://github.com/Ry0x7/Ry0x7.github.io). It displays original sprites as a browser preview; desktop behavior requires this Windows application.
+The companion portfolio landing page is maintained in [Ry0x7.github.io](https://Ry0x7.github.io). It displays original sprites as a browser preview; desktop behavior requires this Windows application.
 
 ## Run Bob
 
