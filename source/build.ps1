@@ -26,6 +26,9 @@ $bobArguments = @(
     ('"{0}"' -f (Join-Path $PSScriptRoot 'ExtraArt.cs')),
     ('"{0}"' -f (Join-Path $PSScriptRoot 'ToyOverlay.cs')),
     ('"{0}"' -f (Join-Path $PSScriptRoot 'HoverPetting.cs')),
+    ('"{0}"' -f (Join-Path $PSScriptRoot 'Pomodoro.cs')),
+    ('"{0}"' -f (Join-Path $PSScriptRoot 'CatDialog.cs')),
+    ('"{0}"' -f (Join-Path $PSScriptRoot 'VisualTimer.cs')),
     ('"{0}"' -f (Join-Path $PSScriptRoot 'Bob.cs'))
 )
 $bobArguments | Set-Content -LiteralPath $bobResponse -Encoding UTF8

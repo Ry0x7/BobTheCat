@@ -9,6 +9,9 @@ Bob is a native Windows desktop application targeting .NET Framework 4.8. It use
 | `source/CatBrain.cs` | Deterministic activity planning, movement, cursor curiosity, window behavior, and toy physics |
 | `source/Bob.cs` | WinForms host, preferences, native rendering, tray controls, sound, and test/preview entry points |
 | `source/HoverPetting.cs` | Vertical cursor strokes, head/belly targeting, and cooldowns |
+| `source/Pomodoro.cs` | Customizable Pomodoro focus/break state machine, timer intervals, notifications, and settings dialog |
+| `source/VisualTimer.cs` | Floating stationary visual timer HUD overlay, vector icons, custom themes, progress bars, and controls |
+| `source/CatDialog.cs` | Dialogue phrase banks, contextual state dialog selection, and click-through speech bubble overlays |
 | `source/ExtraArt.cs` | Embedded action/yarn frame extraction and laser target |
 | `source/ToyOverlay.cs` | Separate click-through toy overlays and native resource cleanup |
 | `source/AssemblyInfo.cs` | Application identity and version |

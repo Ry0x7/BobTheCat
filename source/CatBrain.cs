@@ -17,6 +17,7 @@ namespace BobDesktop
         public Behavior Mode;
         public bool WindowInteractions = true, ToysEnabled = true, EnergeticPlay = true, LaserFollowsCursor;
         public bool CursorCuriosity = true;
+        public bool QuietMode = false;
         public bool Curious { get; private set; }
         public List<WindowLandmark> Windows = new List<WindowLandmark>();
         public bool Perched { get { return phase == 6 && Action == CatAction.None; } }
@@ -76,6 +77,15 @@ namespace BobDesktop
         private void PlanActivity(double now, Rectangle area, Size pet)
         {
             if (phase != 0) { Rest(now); return; }
+            if (QuietMode)
+            {
+                int quietChoice = random.Next(100);
+                if (quietChoice < 45) Rest(now);
+                else if (quietChoice < 70) { phase = 0; if (!StartAction(CatAction.Loaf, now, area, pet)) Rest(now); }
+                else if (quietChoice < 88) { phase = 0; if (!StartAction(CatAction.Groom, now, area, pet)) Rest(now); }
+                else { phase = 0; if (!StartAction(CatAction.Stretch, now, area, pet)) Rest(now); }
+                return;
+            }
             int choice = random.Next(100);
             if (choice < 15 && WindowInteractions && Windows.Count > 0)
             {

@@ -58,6 +58,14 @@ The added actions and yarn use reference-based generated pixel artwork. Frames r
 
 **Scratch Bob's head** and **Belly rub** are direct tray shortcuts. **Pet with cursor hover** toggles gesture petting. Move up/down a few times over visible fur within about two seconds; Bob reacts with relaxed eyes, a happy pose, and a meow. Petting has a short cooldown to keep sound from repeating too quickly.
 
+- **🍅 Pomodoro Timer & Visual HUD**: Built-in customizable focus companion with a floating visual HUD overlay. Set focus intervals (15–60 min or custom), short breaks (3–15 min), and long breaks (10–30 min) with cycle tracking.
+  - **Customizable Visual Timer HUD**: Sleek floating desktop display with phase badges, tabular live countdown, progress bar, cycle dots, and interactive controls (`▶/❚❚` pause/resume, `⏭` skip, `+5m` quick extend, drag handle).
+  - **4 Hand-Crafted Themes**: *Cozy Bob* (warm amber/espresso matching Bob), *Modern Glass* (dark translucent obsidian), *Minimal Pill* (compact single-line capsule), and *Light Ceramic* (crisp porcelain ivory).
+  - **3 Placement Modes**: *Follow Bob* (dynamically tracks Bob across monitors), *Free-Floating Desktop HUD* (drag anywhere on screen), and *Compact Bar Under Bob* (mini progress bar under Bob's paws).
+  - **Customizable Scale & Opacity**: 85% compact, 100% normal, 125% large; 50% to 100% opacity; optional click-through mode.
+  - **Quiet Companion Mode**: Bob stays restful and calm while you focus, stretching and chirping to celebrate when your break arrives.
+- **Random Cat Dialogs & Speech Bubbles**: Floating, non-intrusive speech bubbles show Bob's thoughts and reactions. Bob speaks contextually while studying during Pomodoro sessions, celebrating breaks, reacting to head scratches/belly rubs, hunting red dots, napping, or loafing. Anchored directly to Bob's ears for all sitting and loafing poses. Can be toggled in **Settings > Show speech bubbles**.
+- **Clean Context Menu**: Streamlined right-click menu organized into logical submenus (`🍅 Pomodoro Timer`, `Cat Actions & Toys`, `Behavior Mode`, and `Settings`) instead of an oversized vertical list.
 - **Autonomous cat life** is the default. **Follow my cursor** and **Stay here** are also available.
 - **Notice my nearby cursor** enables brief curiosity during a stroll or rest. Turning it off makes Bob's autonomous routine independent of the cursor.
 - **Energetic play** allows autonomous zoomies, toy chases, hops, and window grabs. Turn it off for a calmer routine; you can still request actions yourself.
@@ -90,7 +98,7 @@ The build uses the .NET Framework compiler installed with Windows, compiles the 
 .\scripts\package.ps1 -SkipBuild
 ```
 
-The default tests are deterministic and silent. They check movement, sleep, negative monitor coordinates, autonomous variety, cursor curiosity and cooldown, new action completion, yarn batting, toy cleanup, window loss and landing, all action frames, meow variation, sound muting, head/belly hover strokes, and rejection of transparent-space/horizontal gestures.
+The default tests are deterministic and silent. They check movement, sleep, negative monitor coordinates, autonomous variety, cursor curiosity and cooldown, new action completion, yarn batting, toy cleanup, window loss and landing, all action frames, meow variation, sound muting, head/belly hover strokes, rejection of transparent-space/horizontal gestures, Pomodoro interval state transitions/pausing/skips, custom durations and preferences serialization, quiet companion mode, and random cat dialog variety and contextual phrasing.
 
 `-Live` opens a temporary cat and test window for about ten seconds, exercises the real layered-window renderer and tray commands, verifies toy click-through/no-activation, and then closes them. Run it on an interactive Windows desktop. The GitHub workflow runs the default tests and packages a portable ZIP; it does not require a logged-in desktop session. Check the repository's Actions tab for the status of a particular CI run.
 
@@ -100,8 +108,11 @@ The default tests are deterministic and silent. They check movement, sleep, nega
 
 | File | Purpose |
 | --- | --- |
-| `source/CatBrain.cs` | Deterministic activity planning, motion, cursor curiosity, window interactions, and toy physics |
+| `source/CatBrain.cs` | Deterministic activity planning, motion, cursor curiosity, window interactions, quiet focus mode, and toy physics |
 | `source/Bob.cs` | Preferences, WinForms host, native window rendering, tray controls, sound playback, tests, and previews |
+| `source/Pomodoro.cs` | Customizable Pomodoro focus timer state machine, intervals, desktop notifications, and settings dialog |
+| `source/VisualTimer.cs` | Floating stationary visual timer HUD overlay, vector icons, custom themes, progress bars, and controls |
+| `source/CatDialog.cs` | Random and contextual cat dialogue bank and transparent speech bubble overlay |
 | `source/ExtraArt.cs` | Native generated sprite extraction and precise laser target |
 | `source/HoverPetting.cs` | Vertical stroke detection, head/belly targeting, and petting cooldown |
 | `source/ToyOverlay.cs` | Tiny click-through toy window and native resource cleanup |
