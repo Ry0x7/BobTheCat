@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+- Added customizable Pomodoro Focus & Break timer with custom intervals, cycle tracking, sound chimes, and balloon notifications.
+- Added Quiet Companion cat mode where Bob stays calm and restful while you work, celebrating when breaks arrive.
+- Added stationary floating Visual Timer HUD with live tabular countdown, progress track, vector icons (`▶`, `❚❚`, `⏭`, `⟲`, `✕`), and 4 themes (*Cozy Bob*, *Modern Glass*, *Minimal Pill*, *Light Ceramic*).
+- Added contextual cat dialogue speech bubbles with ear-anchored positioning.
+- Streamlined context menu with organized submenus for Pomodoro, actions/toys, behavior modes, and settings.
+
 ## 0.2.1
 
 - Replaced procedural added poses with ten reference-based generated animation strips.
